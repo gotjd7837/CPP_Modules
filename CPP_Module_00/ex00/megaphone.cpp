@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:24:25 by haekang           #+#    #+#             */
-/*   Updated: 2024/01/17 17:22:16 by haekang          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:17:53 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
             j = 0;
             while (argv[i][j])
             {
-                std::cout << (char)toupper(argv[i][j]);
+                std::cout << static_cast<char>(std::toupper(argv[i][j]));
                 j++;
             }
             i++;
