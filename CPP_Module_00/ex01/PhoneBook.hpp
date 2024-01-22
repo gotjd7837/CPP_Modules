@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 14:24:25 by haekang           #+#    #+#             */
-/*   Updated: 2024/01/22 15:54:53 by haekang          ###   ########.fr       */
+/*   Created: 2024/01/19 15:58:14 by haekang           #+#    #+#             */
+/*   Updated: 2024/01/22 21:02:20 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+# include "Contact.hpp"
 
-int main(int argc, char **argv)
+class PhoneBook
 {
-    if (argc == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    else
-    {
-        for (int i = 1; i < argc; i++)
-        {
-            for (size_t j = 0; j < strlen(argv[i]); j++)
-                std::cout << static_cast<char>(std::toupper(argv[i][j]));
-        }
-    }
-    std::cout << std::endl;
-    return (0);
-}
+  private:
+    int			contactCount;
+    Contact		contacts[8];
+  public:
+    std::string	truncated(std::string str);
+    void		add();
+    void		search();
+    PhoneBook();
+};
+
+#endif
