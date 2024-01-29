@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:02 by haekang           #+#    #+#             */
-/*   Updated: 2024/01/22 21:10:40 by haekang          ###   ########.fr       */
+/*   Updated: 2024/01/30 07:47:28 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,20 @@ void		PhoneBook::search()
         i++;
     }
     std::cout << "Enter index: ";
-    if (!(std::cin >> index))
+    std::cin >> index;
+    if (std::cin.fail())
     {
         std::cout << "Invalid index" << std::endl;
         std::cin.clear();
-        while (std::cin.get() != '\n')
-            ;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return ;
     }
-    std::cin.get();
+    if (std::cin.get() != '\n')
+    {
+        std::cout << "Please enter only one index" << std::endl;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return ;
+    }
     if (index >= 0 && index < this->contactCount)
     {
         std::cout << "First name: " << this->contacts[index].getFirstName() << std::endl;

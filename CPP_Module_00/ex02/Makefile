@@ -6,14 +6,15 @@
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 16:54:09 by haekang           #+#    #+#              #
-#    Updated: 2024/01/24 16:56:03 by haekang          ###   ########.fr        #
+#    Updated: 2024/01/30 07:51:17 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = phonebook
-SRCS = tests.cpp
+NAME = EX02
+SRCS = tests.cpp \
+	Account.cpp
 
 HEADER = Account.hpp
 
