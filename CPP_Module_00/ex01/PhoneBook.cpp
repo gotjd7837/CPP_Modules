@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:02 by haekang           #+#    #+#             */
-/*   Updated: 2024/01/30 07:47:28 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/02 20:15:12 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,6 @@
 PhoneBook::PhoneBook()
 {
     this->contactCount = 0;
-}
-
-std::string PhoneBook::truncated(std::string str)
-{
-    if (str.length() > 10)
-    {
-        str = str.substr(0, 9);
-        str.append(".");
-    }
-    else
-    {
-        while (str.length() < 10)
-        {
-            str.insert(0, " ");
-        }
-    }
-    return (str);
 }
 
 void		PhoneBook::add()
@@ -45,16 +28,16 @@ void		PhoneBook::add()
 
     if (index == 8)
         index = 0;
-    std::cout << "Enter first name: ";
-    std::getline(std::cin, firstName);
-    std::cout << "Enter last name: ";
-    std::getline(std::cin, lastName);
-    std::cout << "Enter nickname: ";
-    std::getline(std::cin, nickname);
-    std::cout << "Enter phone number: ";
-    std::getline(std::cin, phoneNumber);
-    std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, darkestSecret);
+    if (!inputFirstName(firstName))
+        return ;
+    if (!inputLastName(lastName))
+        return ;
+    if (!inputNickname(nickname))
+        return ;
+    if (!inputPhoneNumber(phoneNumber))
+        return ;
+    if (!inputDarkestSecret(darkestSecret))
+        return ;
     this->contacts[index] = Contact(
         firstName,
         lastName,
@@ -77,26 +60,14 @@ void		PhoneBook::search()
     while (i < this->contactCount)
     {
         std::cout << "         " << i << "|";
-        std::cout << this->truncated(this->contacts[i].getFirstName()) << "|";
-        std::cout << this->truncated(this->contacts[i].getLastName()) << "|";
-        std::cout << this->truncated(this->contacts[i].getNickname()) << std::endl;
+        std::cout << truncated(this->contacts[i].getFirstName()) << "|";
+        std::cout << truncated(this->contacts[i].getLastName()) << "|";
+        std::cout << truncated(this->contacts[i].getNickname()) << std::endl;
         i++;
     }
     std::cout << "Enter index: ";
-    std::cin >> index;
-    if (std::cin.fail())
-    {
-        std::cout << "Invalid index" << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!inputIndex(index))
         return ;
-    }
-    if (std::cin.get() != '\n')
-    {
-        std::cout << "Please enter only one index" << std::endl;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return ;
-    }
     if (index >= 0 && index < this->contactCount)
     {
         std::cout << "First name: " << this->contacts[index].getFirstName() << std::endl;

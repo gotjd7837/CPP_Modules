@@ -5,18 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/24 16:54:09 by haekang           #+#    #+#              #
-#    Updated: 2024/02/02 14:06:58 by haekang          ###   ########.fr        #
+#    Created: 2024/02/02 16:39:11 by haekang           #+#    #+#              #
+#    Updated: 2024/02/02 20:53:57 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = EX02
-SRCS = tests.cpp \
-	Account.cpp
+NAME = zombieHorde
+SRCS = main.cpp \
+		Zombie.cpp \
+		zombieHorde.cpp
 
-HEADER = Account.hpp
+HEADER = Zombie.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re
@@ -26,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

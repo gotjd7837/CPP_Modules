@@ -5,32 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 15:31:22 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/02 18:34:37 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/02 18:06:13 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/02 20:44:04 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int		main(void)
+int main(void)
 {
-    PhoneBook	phoneBook = PhoneBook();
-    std::string	command;
-
-    while (1)
+    Zombie* z = zombieHorde(5, "zombie");
+    for (int i = 0; i < 5; i++)
     {
-        if (!std::cin.eof())
-            std::cout << "Enter command: ";
-        if (!std::getline(std::cin, command))
-            break ;
-        if (command == "EXIT")
-            break ;
-        else if (command == "ADD")
-            phoneBook.add();
-        else if (command == "SEARCH")
-            phoneBook.search();
-        else
-            std::cout << "Invalid command" << std::endl;
+        z[i].announce();
     }
+    delete[] z;
     return (0);
 }

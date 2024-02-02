@@ -6,7 +6,7 @@
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 14:16:30 by haekang           #+#    #+#              #
-#    Updated: 2024/01/22 18:40:56 by haekang          ###   ########.fr        #
+#    Updated: 2024/02/02 20:10:55 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
 SRCS = main.cpp \
 	PhoneBook.cpp \
-	Contact.cpp
+	Contact.cpp \
+	PhoneBookUtil.cpp
 
 HEADER = Contact.hpp \
 	PhoneBook.hpp
