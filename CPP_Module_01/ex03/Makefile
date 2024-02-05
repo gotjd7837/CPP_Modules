@@ -5,19 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/02 16:39:11 by haekang           #+#    #+#              #
-#    Updated: 2024/02/05 13:42:08 by haekang          ###   ########.fr        #
+#    Created: 2024/02/05 14:06:14 by haekang           #+#    #+#              #
+#    Updated: 2024/02/05 15:53:09 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = zombieHorde
+NAME = Ex03
 SRCS = main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp
 
-HEADER = Zombie.hpp
+HEADER = HumanA.hpp \
+		HumanB.hpp \
+		Weapon.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re

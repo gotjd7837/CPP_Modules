@@ -6,7 +6,7 @@
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 14:04:52 by haekang           #+#    #+#              #
-#    Updated: 2024/02/02 15:31:23 by haekang          ###   ########.fr        #
+#    Updated: 2024/02/05 13:44:25 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp
+%.o : %.cpp $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

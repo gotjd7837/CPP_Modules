@@ -5,19 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/02 16:39:11 by haekang           #+#    #+#              #
-#    Updated: 2024/02/05 13:42:08 by haekang          ###   ########.fr        #
+#    Created: 2024/02/05 13:41:07 by haekang           #+#    #+#              #
+#    Updated: 2024/02/05 13:53:32 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = zombieHorde
-SRCS = main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
-
-HEADER = Zombie.hpp
+NAME = HiBrain
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re
@@ -27,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
