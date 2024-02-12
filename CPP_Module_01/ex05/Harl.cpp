@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:33:34 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/05 20:55:04 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:57:59 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,15 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
+    void (Harl::*complaints[4])();
+    complaints[0] = &Harl::debug;
+    complaints[1] = &Harl::info;
+    complaints[2] = &Harl::warning;
+    complaints[3] = &Harl::error;
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-//멤버 함수를 함수 포인터로 사용해라!
+    for (int i = 0; i < 4; i++)
+    {
+        if (levels[i] == level)
+            (this->*complaints[i])();
+    }
 }
