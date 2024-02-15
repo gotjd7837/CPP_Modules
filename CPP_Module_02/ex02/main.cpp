@@ -5,32 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 15:31:22 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/15 13:10:02 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/15 12:50:10 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/15 20:33:10 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Fixed.hpp"
 
-int		main(void)
+int main( void )
 {
-    PhoneBook	phoneBook;
-    std::string	command;
-
-    while (1)
-    {
-        if (!std::cin.eof())
-            std::cout << "Enter command: ";
-        if (!std::getline(std::cin, command))
-            break ;
-        if (command == "EXIT")
-            break ;
-        else if (command == "ADD")
-            phoneBook.add();
-        else if (command == "SEARCH")
-            phoneBook.search();
-        else
-            std::cout << "Invalid command" << std::endl;
-    }
-    return (0);
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
+    return 0;
 }
