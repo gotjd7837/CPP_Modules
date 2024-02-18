@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:40:04 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/15 20:26:08 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/17 15:51:11 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,13 +140,13 @@ const Fixed& Fixed::min(const Fixed& fixed1, const Fixed& fixed2)
         return (fixed1);
 }
         
-// Fixed& Fixed::max(Fixed& fixed1, Fixed& fixed2)
-// {
-//     if (fixed1.getRawBits() <= fixed2.getRawBits())
-//         return (fixed2);
-//     else
-//         return (fixed1);
-// }
+Fixed& Fixed::max(Fixed& fixed1, Fixed& fixed2)
+{
+    if (fixed1.getRawBits() <= fixed2.getRawBits())
+        return (fixed2);
+    else
+        return (fixed1);
+}
         
 const Fixed& Fixed::max(const Fixed& fixed1, const Fixed& fixed2)
 {

@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:01:40 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/15 20:26:26 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/17 16:15:00 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Fixed
         Fixed(const int value);
         Fixed(const float value);
         Fixed(const Fixed& copy);
+        Fixed& operator = (const Fixed& fixed);
         ~Fixed();
         
         static Fixed& min(Fixed& fixed1, Fixed& fixed2);
@@ -37,8 +38,6 @@ class Fixed
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
-        
-        Fixed& operator = (const Fixed& fixed);
         
         bool operator > (const Fixed& fixed) const;
         bool operator < (const Fixed& fixed) const;
