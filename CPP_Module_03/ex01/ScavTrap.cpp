@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:08:16 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/18 11:49:33 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/19 21:17:17 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,8 @@ ScavTrap::ScavTrap(const std::string name)
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copy)
+: ClapTrap(copy)
 {
-    this->name = copy.name;
-    this->hitPoint = copy.hitPoint;
-    this->energyPoint = copy.energyPoint;
-    this->attackDamage = copy.attackDamage;
-    
     std::cout << "ScavTrap : Copy constructor called" << std::endl;
 }
 
