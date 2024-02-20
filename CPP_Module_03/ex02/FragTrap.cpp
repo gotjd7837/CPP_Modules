@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:48:55 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/19 21:41:03 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/20 15:09:09 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ FragTrap& FragTrap::operator = (const FragTrap& copy)
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap : Destructor called" << std::endl;
+}
+
+void FragTrap::highFivesGuys()
+{
+    if (this->hitPoint == 0 || this->energyPoint == 0)
+    {
+        std::cout << "FragTrap " << this->name << " is already dead" << std::endl;
+        return ;
+    }
+    else
+    {
+        std::cout << "FragTrap " << this->name
+        << " high five !" << std::endl;
+        this->energyPoint -= 1;
+    }
 }
