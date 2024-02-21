@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 16:03:08 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/22 00:17:43 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/22 03:57:27 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/22 03:57:53 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
+# include <string>
+# include "ICharacter.hpp"
 
-class Animal
-{
-    protected :
-        std::string type;
-    public :
-        Animal();
-        Animal(const Animal& copy);
-        Animal& operator = (const Animal& copy);
-        virtual ~Animal();
-        virtual void makeSound() const = 0;
-        std::string getType() const;
-};
-
-#endif
