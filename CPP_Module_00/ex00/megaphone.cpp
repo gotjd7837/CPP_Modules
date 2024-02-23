@@ -6,11 +6,12 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:24:25 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/02 14:41:08 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/24 01:54:48 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
 
 int main(int argc, char **argv)
 {
