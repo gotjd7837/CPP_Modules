@@ -1,43 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 16:09:57 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:05:48 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 18:49:03 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 20:27:59 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cure.hpp"
+#include "ICharacter.hpp"
 
-Animal::Animal()
-: type("Animal") 
+Cure::Cure()
+: AMateria("cure")
 {
-    std::cout << "Animal constructor" << std::endl;
-}
-
-Animal::Animal(const Animal& copy)
-: type(copy.type)
-{
-    std::cout << "Animal copy constructor" << std::endl;
-}
-
-Animal& Animal::operator = (const Animal& copy)
-{
-    this->type = copy.type;
     
-    std::cout << "Animal copy operator" << std::endl;
+}
+
+Cure::Cure(const Cure& copy)
+: AMateria(copy)
+{
+    
+}
+
+Cure& Cure::operator = (const Cure& copy)
+{
+    if (this == &copy)
+        return (*this);
+    this->type = copy.type;
     return (*this);
 }
 
-Animal::~Animal()
+Cure::~Cure()
 {
-    std::cout << "Animal destructor" << std::endl;
+    
 }
 
-std::string Animal::getType() const
+AMateria* Cure::clone() const
 {
-    return (this->type);
+    return (new Cure(*this));
+}
+
+void Cure::use(ICharacter& target)
+{
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 15:59:01 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:16:42 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 17:32:39 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 17:32:52 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongCat.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-int main()
+# include <iostream>
+
+class AMateria;
+
+class IMateriaSource
 {
-//animal 추상 클래스로 만들어야함
-//대입 연산자 오버로딩에 자기 자신 대입하는거 전부 수정해야함
-}
+    public:
+        virtual ~IMateriaSource() {}
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(const std::string& type) = 0;
+};
+
+#endif

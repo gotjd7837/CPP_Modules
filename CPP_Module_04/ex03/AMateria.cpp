@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 16:09:57 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:05:48 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 18:36:30 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/24 00:59:53 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
-Animal::Animal()
-: type("Animal") 
+AMateria::AMateria(const std::string& type)
+: type(type)
 {
-    std::cout << "Animal constructor" << std::endl;
+    
 }
 
-Animal::Animal(const Animal& copy)
+AMateria::AMateria(const AMateria& copy)
 : type(copy.type)
 {
-    std::cout << "Animal copy constructor" << std::endl;
+    
 }
 
-Animal& Animal::operator = (const Animal& copy)
+AMateria& AMateria::operator = (const AMateria& copy)
 {
     this->type = copy.type;
-    
-    std::cout << "Animal copy operator" << std::endl;
     return (*this);
 }
 
-Animal::~Animal()
+AMateria::~AMateria()
 {
-    std::cout << "Animal destructor" << std::endl;
+    
 }
 
-std::string Animal::getType() const
+const std::string& AMateria::getType() const
 {
     return (this->type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+    (void)target;
 }

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 15:59:01 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:16:42 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 18:22:37 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 20:26:52 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongCat.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-int main()
+# include "AMateria.hpp"
+
+class Ice : public AMateria
 {
-//animal 추상 클래스로 만들어야함
-//대입 연산자 오버로딩에 자기 자신 대입하는거 전부 수정해야함
-}
+    public:
+        Ice();
+        Ice(const Ice& copy);
+        Ice& operator = (const Ice& copy);
+        ~Ice();
+
+        AMateria* clone() const;
+        void use(ICharacter& target);
+};
+
+#endif

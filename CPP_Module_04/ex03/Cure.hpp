@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 15:59:01 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:16:42 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 18:23:54 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 20:26:42 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongCat.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-int main()
+# include "AMateria.hpp"
+
+class Cure : public AMateria
 {
-//animal 추상 클래스로 만들어야함
-//대입 연산자 오버로딩에 자기 자신 대입하는거 전부 수정해야함
-}
+    public:
+        Cure();
+        Cure(const Cure& copy);
+        Cure& operator = (const Cure& copy);
+        ~Cure();
+
+        AMateria* clone() const;
+        void use(ICharacter& target);
+};
+
+#endif

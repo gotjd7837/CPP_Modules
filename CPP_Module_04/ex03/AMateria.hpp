@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 03:57:27 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/22 03:57:53 by haekang          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:35:00 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,23 @@
 
 # include <iostream>
 # include <string>
-# include "ICharacter.hpp"
 
+class ICharacter;
+
+class AMateria
+{
+    protected:
+        std::string		type;
+    public:
+        AMateria(const std::string& type);
+        AMateria(const AMateria& copy);
+        AMateria& operator = (const AMateria& copy);
+        virtual ~AMateria();
+        
+        const std::string& getType() const;
+        
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
+};
+
+#endif

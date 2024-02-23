@@ -1,43 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 16:09:57 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:05:48 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 18:46:31 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 20:28:04 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
-Animal::Animal()
-: type("Animal") 
+Ice::Ice()
+: AMateria("ice")
 {
-    std::cout << "Animal constructor" << std::endl;
-}
-
-Animal::Animal(const Animal& copy)
-: type(copy.type)
-{
-    std::cout << "Animal copy constructor" << std::endl;
-}
-
-Animal& Animal::operator = (const Animal& copy)
-{
-    this->type = copy.type;
     
-    std::cout << "Animal copy operator" << std::endl;
+}
+
+Ice::Ice(const Ice& copy)
+: AMateria(copy)
+{
+    
+}
+
+Ice& Ice::operator = (const Ice& copy)
+{
+    if (this == &copy)
+        return (*this);
+    this->type = copy.type;
     return (*this);
 }
 
-Animal::~Animal()
+Ice::~Ice()
 {
-    std::cout << "Animal destructor" << std::endl;
+    
 }
 
-std::string Animal::getType() const
+AMateria* Ice::clone() const
 {
-    return (this->type);
+    return (new Ice(*this));
+}
+
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

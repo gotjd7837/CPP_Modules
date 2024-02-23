@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 15:59:01 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/23 20:16:42 by haekang          ###   ########.fr       */
+/*   Created: 2024/02/23 16:42:52 by haekang           #+#    #+#             */
+/*   Updated: 2024/02/23 16:43:50 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongCat.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-int main()
+# include <iostream>
+
+class AMateria;
+
+class ICharacter
 {
-//animal 추상 클래스로 만들어야함
-//대입 연산자 오버로딩에 자기 자신 대입하는거 전부 수정해야함
-}
+    public:
+        virtual ~ICharacter() {}
+        virtual const std::string& getName() const = 0;
+        virtual void equip(AMateria* m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter& target) = 0;
+};
+
+#endif
