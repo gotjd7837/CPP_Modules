@@ -6,13 +6,13 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:08:00 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/05 13:32:59 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/06 13:32:34 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-std::string truncated(std::string str)
+std::string PhoneBook::truncated(std::string str)
 {
     if (str.length() > 10)
     {
@@ -29,7 +29,7 @@ std::string truncated(std::string str)
     return (str);
 }
 
-int inputFirstName(std::string &firstName)
+int PhoneBook::inputFirstName(std::string &firstName)
 {
     std::cout << "Enter first name: ";
     if (!std::getline(std::cin, firstName))
@@ -44,7 +44,7 @@ int inputFirstName(std::string &firstName)
     return (1);
 }
 
-int inputLastName(std::string &lastName)
+int PhoneBook::inputLastName(std::string &lastName)
 {
     std::cout << "Enter last name: ";
     if (!std::getline(std::cin, lastName))
@@ -59,7 +59,7 @@ int inputLastName(std::string &lastName)
     return (1);
 }
 
-int inputNickname(std::string &nickname)
+int PhoneBook::inputNickname(std::string &nickname)
 {
     std::cout << "Enter nickname: ";
     if (!std::getline(std::cin, nickname))
@@ -74,7 +74,7 @@ int inputNickname(std::string &nickname)
     return (1);
 }
 
-int inputPhoneNumber(std::string &phoneNumber)
+int PhoneBook::inputPhoneNumber(std::string &phoneNumber)
 {
     std::cout << "Enter phone number: ";
     if (!std::getline(std::cin, phoneNumber))
@@ -89,7 +89,7 @@ int inputPhoneNumber(std::string &phoneNumber)
     return (1);
 }
 
-int inputDarkestSecret(std::string &darkestSecret)
+int PhoneBook::inputDarkestSecret(std::string &darkestSecret)
 {
     std::cout << "Enter darkest secret: ";
     if (!std::getline(std::cin, darkestSecret))
@@ -104,7 +104,7 @@ int inputDarkestSecret(std::string &darkestSecret)
     return (1);
 }
 
-int inputIndex(int &index)
+int PhoneBook::inputIndex(int &index)
 {
     std::string input;
 

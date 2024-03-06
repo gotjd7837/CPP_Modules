@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:02 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/02 20:15:12 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/06 13:36:20 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void		PhoneBook::add()
 
     if (index == 8)
         index = 0;
-    if (!inputFirstName(firstName))
+    if (!this->inputFirstName(firstName))
         return ;
-    if (!inputLastName(lastName))
+    if (!this->inputLastName(lastName))
         return ;
-    if (!inputNickname(nickname))
+    if (!this->inputNickname(nickname))
         return ;
-    if (!inputPhoneNumber(phoneNumber))
+    if (!this->inputPhoneNumber(phoneNumber))
         return ;
-    if (!inputDarkestSecret(darkestSecret))
+    if (!this->inputDarkestSecret(darkestSecret))
         return ;
     this->contacts[index] = Contact(
         firstName,
@@ -66,7 +66,7 @@ void		PhoneBook::search()
         i++;
     }
     std::cout << "Enter index: ";
-    if (!inputIndex(index))
+    if (!this->inputIndex(index))
         return ;
     if (index >= 0 && index < this->contactCount)
     {
@@ -77,7 +77,5 @@ void		PhoneBook::search()
         std::cout << "Darkest secret: " << this->contacts[index].getDarkestSecret() << std::endl;
     }
     else
-    {
         std::cout << "Invalid index" << std::endl;
-    }
 }
