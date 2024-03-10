@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:23:34 by haekang           #+#    #+#             */
-/*   Updated: 2024/03/10 18:30:11 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/10 18:38:58 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int ac, char *av[])
         return (1);
     }
     std::string infileName = av[1];
+    std::string outfileName = infileName + ".replace";
     std::string s1 = av[2];
     std::string s2 = av[3];
     std::string line;
@@ -43,7 +44,7 @@ int main(int ac, char *av[])
         content.insert(pos, s2);
         pos += s2.length();
     }
-    std::ofstream outfileStream(infileName + ".replace");
+    std::ofstream outfileStream(outfileName.c_str());
     if (!outfileStream.is_open())
     {
         std::cout << "Error: File open failed" << std::endl;
