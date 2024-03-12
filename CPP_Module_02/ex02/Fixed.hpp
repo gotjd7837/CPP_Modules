@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:01:40 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/17 16:15:00 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/12 19:02:51 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ class Fixed
         const static int bits = 8;
     public :
         Fixed();
-        Fixed(const int value);
-        Fixed(const float value);
         Fixed(const Fixed& copy);
         Fixed& operator = (const Fixed& fixed);
         ~Fixed();
+
+        Fixed(const int value);
+        Fixed(const float value);
         
         static Fixed& min(Fixed& fixed1, Fixed& fixed2);
         const static Fixed& min(const Fixed& fixed1, const Fixed& fixed2);

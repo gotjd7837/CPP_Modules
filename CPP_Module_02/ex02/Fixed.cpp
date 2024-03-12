@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:40:04 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/17 15:51:11 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:56:24 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ Fixed Fixed::operator * (const Fixed& fixed) const
 
 Fixed Fixed::operator / (const Fixed& fixed) const
 {
+    if (fixed.toFloat() == 0)
+    {
+        std::cout << "Error: Division by zero" << std::endl;
+        return (Fixed(0));
+    }
     Fixed res(this->toFloat() / fixed.toFloat());
     return (res);
 }
@@ -176,7 +181,7 @@ int Fixed::toInt(void) const
     return this->value >> this->bits;
 }
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+std::ostream& operator << (std::ostream& out, const Fixed& fixed)
 {
     out << fixed.toFloat();
     return out;
