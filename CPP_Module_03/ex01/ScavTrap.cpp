@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:08:16 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/19 21:17:17 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/13 16:55:06 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ ScavTrap::~ScavTrap()
 
 void    ScavTrap::attack(const std::string& target)
 {
-    if (this->hitPoint == 0 || this->energyPoint == 0)
+    if (this->hitPoint == 0)
     {
         std::cout << "ScavTrap " << this->name << " is already dead" << std::endl;
+        return ;
+    }
+    else if (this->energyPoint == 0)
+    {
+        std::cout << "ScavTrap " << this->name << " has no energy" << std::endl;
         return ;
     }
     else
@@ -64,9 +69,14 @@ void    ScavTrap::attack(const std::string& target)
 
 void    ScavTrap::guardGate()
 {
-    if (this->hitPoint == 0 || this->energyPoint == 0)
+    if (this->hitPoint == 0)
     {
         std::cout << "ScavTrap " << this->name << " is already dead" << std::endl;
+        return ;
+    }
+    else if (this->energyPoint == 0)
+    {
+        std::cout << "ScavTrap " << this->name << " has no energy" << std::endl;
         return ;
     }
     else

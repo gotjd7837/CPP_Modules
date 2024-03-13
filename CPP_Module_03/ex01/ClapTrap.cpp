@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:57:16 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/18 11:37:47 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/13 16:36:39 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,14 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->hitPoint == 0 || this->energyPoint == 0)
+    if (this->hitPoint == 0)
     {
         std::cout << "ClapTrap " << this->name << " is already dead" << std::endl;
+        return ;
+    }
+    else if (this->energyPoint == 0)
+    {
+        std::cout << "ClapTrap " << this->name << " has no energy" << std::endl;
         return ;
     }
     else
@@ -68,9 +73,10 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamege(unsigned int amount)
 {
-    if (amount > this->hitPoint)
+    if (amount >= this->hitPoint)
     {
         this->hitPoint = 0;
+        std::cout << "ClapTrap " << this->name << " take " << amount << " damage" << std::endl;
         std::cout << "ClapTrap " << this->name << " is dead" << std::endl;   
     }
     else
@@ -82,9 +88,14 @@ void ClapTrap::takeDamege(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->hitPoint == 0 || this->energyPoint == 0)
+    if (this->hitPoint == 0)
     {
         std::cout << "ClapTrap " << this->name << " is already dead" << std::endl;
+        return ;
+    }
+    else if (this->energyPoint == 0)
+    {
+        std::cout << "ClapTrap " << this->name << " has no energy" << std::endl;
         return ;
     }
     else

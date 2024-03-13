@@ -6,23 +6,32 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:57:12 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 15:13:17 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/13 18:22:32 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-void    attack(ClapTrap* attacker, std::string target)
+void    test_attack(ClapTrap& attacker, std::string target)
 {
-    attacker->attack(target);
+    attacker.attack(target);
 }
 
 int main()
 {
-    ClapTrap clap("clap");
-    ScavTrap scav("scav");
+    std::cout << "------------test1-------------" << std::endl;
+    {
+        ScavTrap scav("scav");
 
-    attack(&clap, "scav");
-    attack(&scav, "clap");
+        test_attack(scav, "target");
+        scav.guardGate();   
+    }
+    std::cout << "------------test2-------------" << std::endl;
+    {
+        ScavTrap scav("scav");
+        for (int i = 0; i < 50; i++)
+            test_attack(scav, "target");
+        scav.guardGate();
+    }
     return (0);
 }
