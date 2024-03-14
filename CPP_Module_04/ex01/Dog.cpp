@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:54:59 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 21:33:47 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:19:31 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
     std::cout << "Dog sound" << std::endl;
+}
+
+void Dog::getIdea(int idx)
+{
+    std::cout << "idea " << idx << " :" << this->brain->ideas[idx] << std::endl;
+}
+
+void Dog::setIdea(int idx, std::string idea)
+{
+    this->brain->ideas[idx] = idea;
 }

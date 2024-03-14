@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:47:41 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 21:32:17 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:26:58 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class Dog : public Animal
         Dog& operator = (const Dog& copy);
         ~Dog();
         void makeSound() const;
+
+        void getIdea(int idx);
+        void setIdea(int idx, std::string idea);
 };
 
 #endif

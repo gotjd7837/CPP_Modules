@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:44:12 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 21:32:22 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:17:46 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class Cat : public Animal
         Cat& operator = (const Cat& copy);
         ~Cat();
         void makeSound() const;
+
+        void getIdea(int idx);
+        void setIdea(int idx, std::string idea);
 };
 
 #endif

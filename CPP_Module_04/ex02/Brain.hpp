@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 20:18:29 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 20:31:35 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:23:48 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 class Brain
 {
-    private :
-        std::string ideas[100];
-
     public :
+        std::string ideas[100];
+        
         Brain();
         Brain(const Brain& copy);
         Brain& operator = (const Brain& copy);

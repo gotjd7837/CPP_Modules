@@ -6,7 +6,7 @@
 #    By: haekang <haekang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 15:49:03 by haekang           #+#    #+#              #
-#    Updated: 2024/02/20 20:18:46 by haekang          ###   ########.fr        #
+#    Updated: 2024/03/14 22:47:42 by haekang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,10 @@ SRCS = main.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
 		Brain.cpp
 HEADER = Animal.hpp \
 		Cat.hpp \
 		Dog.hpp \
-		WrongAnimal.hpp \
-		WrongCat.hpp \
 		Brain.hpp
 OBJS = $(SRCS:.cpp=.o)
 

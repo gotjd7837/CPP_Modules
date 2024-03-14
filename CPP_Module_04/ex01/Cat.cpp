@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:48:23 by haekang           #+#    #+#             */
-/*   Updated: 2024/02/20 21:34:30 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:17:49 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
     std::cout << "Cat sound" << std::endl;
+}
+
+void Cat::getIdea(int idx)
+{
+    std::cout << "idea " << idx << " :" << this->brain->ideas[idx] << std::endl;
+}
+
+void Cat::setIdea(int idx, std::string idea)
+{
+    this->brain->ideas[idx] = idea;
 }
