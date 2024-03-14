@@ -6,7 +6,7 @@
 /*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:59:01 by haekang           #+#    #+#             */
-/*   Updated: 2024/03/15 00:20:09 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/15 01:22:25 by haekang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main()
         const Animal* i = new Cat();
         delete j;
         delete i;
-        system("leaks Ex01 | grep bytes");
     }
     std::cout << "-----------test2-----------" << std::endl;
     {
@@ -44,7 +43,6 @@ int main()
         {
             delete animals[i];
         }
-        system("leaks Ex01 | grep bytes");
     }
     std::cout << "-----------test3 (deep copy)-----------" << std::endl;
     {
@@ -61,7 +59,6 @@ int main()
 
         delete cat;
         delete copy_cat;
-        system("leaks Ex01 | grep bytes");
     }
     return 0;
 }
