@@ -1,9 +1,17 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Ex00
+NAME = Ex02
 SRCS = main.cpp \
-		Bureaucrat.cpp 
-HEADER = Bureaucrat.hpp
+		Bureaucrat.cpp \
+		AForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
+HEADER = Bureaucrat.hpp \
+		AForm.hpp \
+		ShrubberyCreationForm.hpp \
+		RobotomyRequestForm.hpp \
+		PresidentialPardonForm.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re
