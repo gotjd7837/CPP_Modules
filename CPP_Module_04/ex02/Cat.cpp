@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haekang <haekang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: haeseong <haeseong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:48:23 by haekang           #+#    #+#             */
-/*   Updated: 2024/03/15 00:26:33 by haekang          ###   ########.fr       */
+/*   Updated: 2024/03/22 16:33:47 by haeseong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Cat::Cat(const Cat& copy)
 
 Cat& Cat::operator = (const Cat& copy)
 {
+    if (this == &copy)
+        return (*this);
     this->type = copy.type;
     this->brain = new Brain(*copy.brain);
     
