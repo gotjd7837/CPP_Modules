@@ -21,31 +21,38 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::convert(const std::string &input)
 {
-    e_type type = getType(input);
-
-    switch (type)
+    try
     {
-        case CHAR :
-            convertChar(input);
-            break;
-        case INT :
-            convertInt(input);
-            break;
-        case FLOAT :
-            convertFloat(input);
-            break;
-        case DOUBLE :
-            convertDouble(input);
-            break;
-        case NANUMBER :
-            convertNan();
-            break;
-        case P_INF :
-            convertPInf();
-            break;
-        case N_INF :
-            convertNInf();
-            break;
+        e_type type = getType(input);
+
+        switch (type)
+        {
+            case CHAR :
+                convertChar(input);
+                break;
+            case INT :
+                convertInt(input);
+                break;
+            case FLOAT :
+                convertFloat(input);
+                break;
+            case DOUBLE :
+                convertDouble(input);
+                break;
+            case NANUMBER :
+                convertNan();
+                break;
+            case P_INF :
+                convertPInf();
+                break;
+            case N_INF :
+                convertNInf();
+                break;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << "Error: " << e.what() << '\n';
     }
 }
 

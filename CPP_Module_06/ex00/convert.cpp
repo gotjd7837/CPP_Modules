@@ -6,25 +6,38 @@ e_type getType(const std::string &input)
     {
         if (input[i] < 32 || input[i] > 126)
             throw ScalarConverter::nonDisplayable();
+
+        if (isdigit(input[i]) || input[i] == '-' || input[i] == '+' || input[i] == '.' || input[i] == 'f')
+            continue ;
+        else
+            throw ScalarConverter::invalidInput();
     }
+
     if (input.length() == 1 && !isdigit(input[0]))
         return (CHAR);
+
     if (input == "nan")
         return (NANUMBER);
+
     if (input == "+inf")
         return (P_INF);
+
     if (input == "-inf")
         return (N_INF);
+
     if (input.find('.') != std::string::npos)
     {
         if (input.find('f') != std::string::npos)
             return (FLOAT);
         return (DOUBLE);
     }
+
     if (input.find('f') != std::string::npos)
         throw ScalarConverter::invalidInput();
+
     if (input.find('.') == std::string::npos)
         return (INT);
+
     throw ScalarConverter::invalidInput();
 }
 
@@ -45,8 +58,8 @@ void convertInt(const std::string &input)
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(i) << std::endl;
+    std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
 void convertFloat(const std::string &input)
@@ -58,8 +71,16 @@ void convertFloat(const std::string &input)
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(f) << std::endl;
-    std::cout << "float: " << f << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(f) << std::endl;
+    if (f == static_cast<int>(f))
+    {
+        std::cout << "float: " << f << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << f << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(f) << std::endl;
+    }
 }
 
 void convertDouble(const std::string &input)
@@ -71,8 +92,16 @@ void convertDouble(const std::string &input)
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(d) << std::endl;
-    std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
-    std::cout << "double: " << d << std::endl;
+    if (d == static_cast<int>(d))
+    {
+        std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
+        std::cout << "double: " << d << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+        std::cout << "double: " << d << std::endl;
+    }
 }
 
 void convertNan()
