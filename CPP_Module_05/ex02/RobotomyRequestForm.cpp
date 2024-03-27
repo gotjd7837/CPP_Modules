@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 
 const char* RobotomyRequestForm::RobotomyFailureException::what() const throw()
 {

@@ -28,11 +28,13 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreatio
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+    std::string filename = this->target + "_shrubbery"; 
+
     if (!this->getSign())
         throw AForm::FormNotSignedException();
     else if (executor.getGrade() > this->getGradeToExecute())
         throw AForm::GradeTooLowException();
-    std::ofstream outfile(this->target + "_shrubbery");
+    std::ofstream outfile(filename.c_str());
     outfile << "      /\\      " << std::endl;
     outfile << "     /\\*\\     " << std::endl;
     outfile << "    /\\O\\*\\    " << std::endl;
