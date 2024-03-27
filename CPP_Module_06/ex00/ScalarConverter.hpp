@@ -2,9 +2,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <string>
-# include <exception>
-# include <limits>
+# include <cstdlib>
+# include <climits>
 # include <cfloat>
 
 enum e_type
