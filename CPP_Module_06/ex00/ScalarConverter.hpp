@@ -2,6 +2,10 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <string>
+# include <exception>
+# include <limits>
+# include <cfloat>
 
 enum e_type
 {
@@ -25,16 +29,16 @@ class ScalarConverter
     public :
         static void convert(const std::string &input);
 
-        class nonDisplayable : public std::exception
-        {
-            public :
-                virtual const char* what() const throw();
-        };
-
         class invalidInput : public std::exception
         {
             public :
-                virtual const char* what() const throw();
+                const char* what() const throw();
+        };
+
+        class impossibleConversion : public std::exception
+        {
+            public :
+                const char* what() const throw();
         };
 };
 

@@ -56,12 +56,12 @@ void ScalarConverter::convert(const std::string &input)
     }
 }
 
-const char* ScalarConverter::nonDisplayable::what() const throw()
-{
-    return ("Non displayable");
-}
-
 const char* ScalarConverter::invalidInput::what() const throw()
 {
     return ("Invalid input");
+}
+
+const char* ScalarConverter::impossibleConversion::what() const throw()
+{
+    return ("Impossible conversion");
 }
