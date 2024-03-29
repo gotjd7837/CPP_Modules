@@ -11,10 +11,9 @@ class Array
         unsigned int size;
 
     public :
-        Array() : arr(NULL), size(0)
-        {}
-        Array(unsigned int n) : arr(new T[n]), size(n)
-        {}
+        Array() : arr(new T[0]), size(0) {}
+        Array(unsigned int n) : arr(new T[n]), size(n) {}
+        
         Array(const Array& copy) : arr(new T[copy.size]), size(copy.size)
         {
             for (unsigned int i = 0; i < size; i++)
