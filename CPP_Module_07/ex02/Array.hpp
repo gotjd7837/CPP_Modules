@@ -33,6 +33,8 @@ class Array
             this->size = copy.size;
             for (unsigned int i = 0; i < this->size; i++)
                 this->arr[i] = copy.arr[i];
+
+            return *this;
         }
 
         T& operator [] (unsigned int i)

@@ -15,8 +15,8 @@ int main()
 
     std::cout << "--------test2---------" << std::endl;
     {
-        std::string a = "chaine1";
-        std::string b = "chaine2";
+        std::string a = "1";
+        std::string b = "2";
 
         std::cout << "a = " << a << ", b = " << b << std::endl;
         swap_(a, b);

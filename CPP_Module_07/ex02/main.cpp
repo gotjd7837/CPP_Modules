@@ -10,9 +10,9 @@ int main()
 
         for (unsigned int i = 0; i < 5; i++)
         {
-            intarr[i] = i + 1;
-            floatarr[i] = (i + 1) * 1.1;
-            chararr[i] = 'a' + i;
+            intarr[i] += 1;
+            floatarr[i] += 1.1;
+            chararr[i] += 'a';
         }
 
         std::cout << "intarr: " << std::endl;
@@ -27,6 +27,25 @@ int main()
     }
 
     std::cout << "-------test2--------" << std::endl;
+    {
+        Array<int> intarr(5);
+
+        for (int i = 0; i < 5; i++)
+            intarr[i] = i + 1;
+
+        Array<int> copy1(intarr);
+        Array<int> copy2;
+
+        copy2 = copy1;
+        for (int i = 0; i < 5; i++)
+            copy2[i] += 1;
+        
+        std::cout << "|copy1|" << "     " << "|case2|" << std::endl;
+        for (int i = 0; i < 5; i++)
+            std::cout << "|  " << copy1[i] << "  |" << "     " << "|  " << copy2[i] << "  |" << std::endl;
+    }
+
+    std::cout << "-------test1--------" << std::endl;
     {
         Array<int> intarr(5);
 
