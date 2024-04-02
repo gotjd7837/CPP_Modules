@@ -44,12 +44,12 @@ class Array
             return this->arr[i];
         }
 
-        const T& operator [] (unsigned int i) const
-        {
-            if (i >= this->size)
-                throw std::out_of_range("Index out of range");
-            return this->arr[i];
-        }
+        // const T& operator [] (unsigned int i) const
+        // {
+        //     if (i >= this->size)
+        //         throw std::out_of_range("Index out of range");
+        //     return this->arr[i];
+        // }
 
         unsigned int Size() const
         {

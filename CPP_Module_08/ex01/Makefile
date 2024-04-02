@@ -1,8 +1,9 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = Ex00
-SRCS = main.cpp
-HEADER = easyfind.hpp
+NAME = Ex01
+SRCS = main.cpp \
+		Span.cpp
+HEADER = Span.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all clean fclean re
