@@ -1,5 +1,6 @@
 #include "MutantStack.hpp"
 #include <iostream>
+#include <algorithm>
 #include <list>
 
 int main()
@@ -50,6 +51,26 @@ int main()
             ++it;
         }
         std::list<int> s(list);
+    }
+    std::cout << "----------easyfind----------" << std::endl;
+    {
+        MutantStack<int> mstack;
+        mstack.push(1);
+        mstack.push(2);
+        mstack.push(3);
+        mstack.push(4);
+        mstack.push(5);
+        try
+        {
+            MutantStack<int>::iterator it = std::find(mstack.begin(), mstack.end(), 3);
+            if (it == mstack.end())
+                throw std::runtime_error("Value not found");
+            std::cout << *it << std::endl;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
     }
     return 0;
 }

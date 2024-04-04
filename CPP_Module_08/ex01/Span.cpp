@@ -38,8 +38,11 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
+    int max;
+
     if (vec_.size() <= 1)
         throw std::runtime_error("Span is too short");
     std::sort(vec_.begin(), vec_.end());
-    return (vec_.back() - vec_.front());
+    max = *vec_.rbegin() - *vec_.begin();
+    return (max);
 }

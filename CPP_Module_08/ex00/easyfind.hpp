@@ -2,17 +2,16 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <algorithm>
 # include <vector>
 
 template <typename T>
 typename T::iterator easyfind(T& container, int val)
 {
-    for (typename T::iterator it = container.begin(); it != container.end(); it++)
-    {
-        if (*it == val)
-            return it;
-    }
-    throw std::runtime_error("Value not found");
+    typename T::iterator it = std::find(container.begin(), container.end(), val);
+    if (it == container.end())
+        throw std::runtime_error("Value not found");
+    return (it);
 }
 
 #endif
