@@ -13,7 +13,7 @@ int main()
     try
     {
         std::cout << *easyfind(vec, 3) << std::endl;
-        std::cout << *easyfind(vec, 6) << std::endl;
+        std::cout << *easyfind(vec, 5) << std::endl;
     }
     catch(const std::exception& e)
     {
