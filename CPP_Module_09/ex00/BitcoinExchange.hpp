@@ -10,8 +10,11 @@ class BitcoinExchange
 {
     private :
         std::map<std::string, double> _data;
+        void _parseData();
+        void _processInfile(char* filename);
         int _checkDate(std::string key);
         int _checkValue(double value);
+        void _printInfo(std::string key, double value);
 
     public :
         BitcoinExchange();
