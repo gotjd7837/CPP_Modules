@@ -17,22 +17,40 @@ void BitcoinExchange::_printInfo(std::string key, double value)
 {
     std::map<std::string, double>::iterator it = _data.find(key);
 
-    if (it == _data.end())
+    if (it != _data.end())
+        std::cout << key << " => " << value << " = " << it->second * value << std::endl;
+    else
     {
-        std::cout << "Error: date not found" << std::endl;
-        return ;
+        it = _data.upper_bound(key);
+        if (it == _data.begin())
+        {
+            std::cout << "Error: date not found" << std::endl;
+            return ;
+        }
+        it--;
+        std::cout << key << " => " << value << " = " << it->second * value << std::endl;
     }
-    std::cout << key << " | " << value << " | " << it->second << std::endl;
+    return ;
 }
 
 int BitcoinExchange::_checkValue(double value)
 {
-    // if (value <= 0)
-    // {
-    //     std::cout << "Error: bad value" << std::endl;
-    //     return (0);
-    // }
-    // return (1);
+    if (value < 0)
+    {
+        std::cout << "Error: not a positive number." << std::endl;
+        return (0);
+    }
+    else if (value == 0)
+    {
+        std::cout << "Error: bad value" << std::endl;
+        return (0);
+    }
+    else if (value > 1000)
+    {
+        std::cout << "Error: too large a number." << std::endl;
+        return (0);
+    }
+    return (1);
 }
 
 int BitcoinExchange::_checkDate(std::string key)
@@ -47,8 +65,8 @@ int BitcoinExchange::_checkDate(std::string key)
         if (i == 0)
         {
             year = std::atoi(s.c_str());
-            if (year < 2009 || year > 2023) {
-                std::cout << "Error: bad Date" << std::endl;
+            if (year < 2009 || year > 2022) {
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
                 return (0);
             }
         }
@@ -56,7 +74,11 @@ int BitcoinExchange::_checkDate(std::string key)
         {
             month = std::atoi(s.c_str());
             if (month < 1 || month > 12) {
-                std::cout << "Error: bad Date" << std::endl;
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
+                return (0);
+            }
+            if ((month >= 1 && month <= 9) && s.size() == 1) {
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
                 return (0);
             }
         }
@@ -64,33 +86,32 @@ int BitcoinExchange::_checkDate(std::string key)
         {
             day = std::atoi(s.c_str());
             if (day < 1 || day > 31) {
-                std::cout << "Error: bad Date" << std::endl;
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
+                return (0);
+            }
+            if ((day >= 1 && day <= 9) && s.size() == 1) {
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
                 return (0);
             }
             if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
-                std::cout << "Error: bad Date" << std::endl;
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
                 return (0);
             }
-            if (month == 2)
-            {
-                if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
-                {
-                    if (day > 29) {
-                        std::cout << "Error: bad Date" << std::endl;
-                        return (0);
-                    }
-                }
-                else if (day > 28) {
-                    std::cout << "Error: bad Date" << std::endl;
+            if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+                if (day > 29 && month == 2) {
+                    std::cout << "Error: bad input => " << ss.str() << std::endl;
                     return (0);
                 }
+            } else if (day > 28 && month == 2) {
+                std::cout << "Error: bad input => " << ss.str() << std::endl;
+                return (0);
             }
         }
         i++;
     }
     if (i != 3)
     {
-        std::cout << "Error: bad Date" << std::endl;
+        std::cout << "Error: bad input => " << ss.str() << std::endl;
         return (0);
     }
     return (1);
@@ -122,7 +143,6 @@ void BitcoinExchange::_processInfile(char* filename)
     std::ifstream   infile(filename);
     std::string     line;
     std::string     key;
-    char            pipe;
     double          value;
 
     if (!infile.is_open())
@@ -133,7 +153,7 @@ void BitcoinExchange::_processInfile(char* filename)
         if (line == "" || line == "date | value")
             continue ;
 
-        pipe = 0;
+        char    pipe = 0;
         std::stringstream ss(line);
 
         if (!(ss >> key))
@@ -144,7 +164,7 @@ void BitcoinExchange::_processInfile(char* filename)
         if (!_checkDate(key))
             continue ;
 
-        if (!(ss >> pipe) && pipe != '|')
+        if (!(ss >> pipe) || pipe != '|')
         {
             std::cout << "Error: bad input" << std::endl;
             continue ;
