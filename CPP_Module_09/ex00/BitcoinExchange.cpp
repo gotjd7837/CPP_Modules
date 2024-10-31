@@ -13,7 +13,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
     return (*this);
 }
 
-void BitcoinExchange::_printInfo(std::string key, double value)
+void BitcoinExchange::printInfo(std::string key, double value)
 {
     std::map<std::string, double>::iterator it = _data.find(key);
 
@@ -33,7 +33,7 @@ void BitcoinExchange::_printInfo(std::string key, double value)
     return ;
 }
 
-int BitcoinExchange::_checkValue(double value)
+int BitcoinExchange::checkValue(double value)
 {
     if (value < 0)
     {
@@ -53,7 +53,7 @@ int BitcoinExchange::_checkValue(double value)
     return (1);
 }
 
-int BitcoinExchange::_checkDate(std::string key)
+int BitcoinExchange::checkDate(std::string key)
 {
     std::stringstream ss(key);
     std::string s;
@@ -117,7 +117,7 @@ int BitcoinExchange::_checkDate(std::string key)
     return (1);
 }
 
-void BitcoinExchange::_parseData()
+void BitcoinExchange::parseData()
 {
     std::ifstream   csv("data.csv");
     std::string     line;
@@ -138,7 +138,7 @@ void BitcoinExchange::_parseData()
     }
 }
 
-void BitcoinExchange::_processInfile(char* filename)
+void BitcoinExchange::processInfile(char* filename)
 {
     std::ifstream   infile(filename);
     std::string     line;
@@ -147,6 +147,11 @@ void BitcoinExchange::_processInfile(char* filename)
 
     if (!infile.is_open())
         throw std::runtime_error("Error: could not open file.");
+
+    infile.seekg(0, std::ios::end);
+    if (infile.tellg() == 0)
+        throw std::runtime_error("Error: file is empty");
+    infile.seekg(0, std::ios::beg);
 
     while (std::getline(infile, line))
     {
@@ -161,7 +166,7 @@ void BitcoinExchange::_processInfile(char* filename)
             std::cout << "Error: bad input" << std::endl;
             continue ;
         }
-        if (!_checkDate(key))
+        if (!checkDate(key))
             continue ;
 
         if (!(ss >> pipe) || pipe != '|')
@@ -175,10 +180,10 @@ void BitcoinExchange::_processInfile(char* filename)
             std::cout << "Error: bad input" << std::endl;
             continue ;
         }
-        if (!_checkValue(value))
+        if (!checkValue(value))
             continue ;
 
-        _printInfo(key, value);
+        printInfo(key, value);
     }
 }
 
@@ -186,8 +191,8 @@ void BitcoinExchange::run(char* filename)
 {
     try
     {
-        _parseData();
-        _processInfile(filename);
+        parseData();
+        processInfile(filename);
     }
     catch(const std::exception& e)
     {
